@@ -16,7 +16,6 @@ class WelcomeController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $request->validate([
             'description' => 'required|string|max:255',
             'post_images' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
