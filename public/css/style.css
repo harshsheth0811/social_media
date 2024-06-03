@@ -9,12 +9,14 @@
         --body-color: #efefef;
         --nav-color: #1876f1;
         --bg-color: #fff;
+        --font-color: #626262;
     }
 
     .dark-theme {
         --body-color: #0f0f0f;
         --nav-color: #000;
         --bg-color: #000;
+        --font-color: #efefef;
     }
 
     body {
@@ -123,7 +125,7 @@
         background: var(--bg-color);
         padding: 20px;
         border-radius: 4px;
-        color: #626262;
+        color: var(--font-color);
     }
 
     .main-content {
@@ -136,7 +138,7 @@
         display: flex;
         align-items: center;
         margin-bottom: 30px;
-        color: #626262;
+        color: var(--font-color);
         width: fit-content;
     }
 
@@ -161,7 +163,7 @@
 
     .shortcut-links p {
         margin: 25px 0;
-        color: #626262;
+        color: var(--font-color);
         font-weight: 500;
     }
 
@@ -317,7 +319,7 @@
         background: var(--bg-color);
         border-radius: 6px;
         padding: 20px;
-        color: #626266;
+        color: var(--font-color);
     }
 
     .user-profile {
@@ -327,7 +329,7 @@
 
     .user-profile img {
         width: 45px;
-        height: 45px;   
+        height: 45px;
         border-radius: 50%;
         margin-right: 10px;
     }
@@ -335,7 +337,7 @@
     .user-profile p {
         margin-bottom: -5px;
         font-weight: 500;
-        color: #626262;
+        color: var(--font-color);
     }
 
     .user-profile small {
@@ -356,7 +358,7 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        color: #626262;
+        color: var(--font-color);
         margin-right: 30px;
         font-size: 13px;
     }
@@ -371,7 +373,7 @@
         background: var(--bg-color);
         border-radius: 6px;
         padding: 20px;
-        color: #626262;
+        color: var(--font-color);
         margin: 20px 0;
     }
 
@@ -387,7 +389,7 @@
     }
 
     .post-text span {
-        color: #626262;
+        color: var(--font-color);
         font-weight: 500;
     }
 
@@ -441,7 +443,7 @@
         cursor: pointer;
         padding: 5px 10px;
         border: 1px solid #9a9a9a;
-        color: #626262;
+        color: var(--font-color);
         background: transparent;
         border-radius: 4px;
     }
@@ -506,7 +508,7 @@
         align-items: center;
         justify-content: space-between;
         text-decoration: none;
-        color: #626262;
+        color: var(--font-color);
     }
 
     #dark-btn {
@@ -532,7 +534,7 @@
 
     #dark-btn.dark-btn-on {
         padding-left: 23px;
-        background: #626266;
+        background: #626262;
     }
 
 

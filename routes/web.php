@@ -19,7 +19,11 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [WelcomeController::class, 'index'])->name('home');
     Route::post('/post', [WelcomeController::class, 'store'])->name('home.store');
-    
+
+    Route::post('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('post.delete');
+
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');

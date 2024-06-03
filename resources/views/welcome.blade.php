@@ -87,7 +87,7 @@
                         @endif
                         <div>
                             <p>{{ $post->user->username }}</p>
-                            <small>{{ $post->created_at->format('F d, Y, h:i A') }}</small>
+                            <small>{{ $post->created_at->format('F d, Y') }}</small>
                         </div>
                     </div>
                     <a href="#"><i class="fa fa-ellipsis-v"></i></a>
@@ -101,9 +101,9 @@
 
                 <div class="post-row">
                     <div class="activity-icons">
-                        <div><img src="{{ asset('assets/images/like-blue.png') }}" alt="Like Blue logo"> 120</div>
-                        <div><img src="{{ asset('assets/images/comments.png') }}" alt="Comments logo"> 45</div>
-                        <div><img src="{{ asset('assets/images/share.png') }}" alt="Share logo"> 20</div>
+                        <div><img src="{{ asset('assets/images/like-blue.png') }}" alt="Like Blue logo"></div>
+                        <div><img src="{{ asset('assets/images/comments.png') }}" alt="Comments logo"></div>
+                        <div><img src="{{ asset('assets/images/share.png') }}" alt="Share logo"></div>
                     </div>
 
                     <div class="post-profile-icon">
@@ -123,6 +123,16 @@
     <button type="button" class="load-more-btn">Load More</button>
     <script type="text/javascript">
         var postStore = "{{ route('home.store') }}";
+    </script>
+
+    <script>
+        var likeBlueImageUrl = "{{ asset('assets/images/like-blue.png') }}";
+        var commentsImageUrl = "{{ asset('assets/images/comments.png') }}";
+        var shareImageUrl = "{{ asset('assets/images/share.png') }}";
+    </script>
+
+    <script>
+        var assetBaseUrl = "{{ asset('') }}";
     </script>
 
     <script src="{{ url('javascript/post.js') }}"></script>

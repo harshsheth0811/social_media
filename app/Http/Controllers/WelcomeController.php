@@ -41,4 +41,4 @@ class WelcomeController extends Controller
             'post_image_url' => $imageName ? asset('post_images/' . $imageName) : null
         ]);
     }
-}
+}   

@@ -38,11 +38,37 @@
                     <h2>Photos</h2>
                     <div class="photo-grid">
                         @foreach ($posts as $post)
-                            <img src="{{ asset('post_images/' . $post->post_image) }}" alt="Post Image">
+                            <div class="photo-item" data-id="{{ $post->id }}">
+                                <img src="{{ asset('post_images/' . $post->post_image) }}" alt="Post Image">
+                                <span class="photo-description">{{ $post->description }}</span>
+                                <div class="photo-actions">
+                                    <button class="btn btn-edit" data-id="{{ $post->id }}"><i
+                                            class="fa fa-pencil-square" aria-hidden="true"></i></button>
+                                    <button class="btn btn-delete" data-id="{{ $post->id }}"><i class="fa fa-trash"
+                                            aria-hidden="true"></i></button>
+                                </div>
+                            </div>
                         @endforeach
                     </div>
                 </div>
             </div>
         </div>
+
+        <div id="editPhotoModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form id="editPhotoForm">
+                    <input type="hidden" name="post_id" id="post_id">
+                    <label for="editDescription">Description</label>
+                    <input type="text" id="editDescription" name="description" required maxlength="255">
+                    <label for="editPostImage">Post Image</label>
+                    <input type="file" id="editPostImage" name="post_image">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
     </div>
+
+    <script src="{{ url('javascript/update.js') }}"></script>
+    <script src="{{ url('javascript/delete.js') }}"></script>
 @endsection
