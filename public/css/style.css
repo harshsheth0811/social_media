@@ -13,7 +13,7 @@
     }
 
     .dark-theme {
-        --body-color: #0f0f0f;
+        --body-color: #0f0f0fee;
         --nav-color: #000;
         --bg-color: #000;
         --font-color: #efefef;
