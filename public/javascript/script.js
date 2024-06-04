@@ -5,6 +5,20 @@ function settingsMenuToggle() {
     settingsmenu.classList.toggle("settings-menu-height");
 }
 
+function toggleNotificationMenu() {
+    const notificationMenu = document.querySelector('.notification-menu');
+    notificationMenu.classList.toggle('notification-menu-height');
+}
+
+document.addEventListener('click', function(event) {
+    const notificationMenu = document.querySelector('.notification-menu');
+    const notificationIcon = document.querySelector('.notification-icon');
+    if (!notificationMenu.contains(event.target) && !notificationIcon.contains(event.target)) {
+        notificationMenu.classList.remove('notification-menu-height');
+    }
+});
+
+
 darkBtn.onclick = function () {
     darkBtn.classList.toggle("dark-btn-on");
     document.body.classList.toggle("dark-theme");

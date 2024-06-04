@@ -22,4 +22,9 @@ class Posts extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function likes()
+    {
+        return $this->hasMany(Likes::class, 'posts_id');
+    }
 }

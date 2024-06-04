@@ -2,7 +2,9 @@
     <img src="{{ asset('assets/images/logo.png') }}" alt="SocialBook logo" class="logo">
 
     <ul>
-        <li><img src="{{ asset('assets/images/notification.png') }}" alt="Notification logo"></li>
+        <li class="notification-icon" onclick="toggleNotificationMenu()">
+            <img src="{{ asset('assets/images/notification.png') }}" alt="Notification logo">
+        </li>
         <li><img src="{{ asset('assets/images/inbox.png') }}" alt="Inbox logo"></li>
         <li><img src="{{ asset('assets/images/video.png') }}" alt="Video logo"></li>
     </ul>
@@ -19,6 +21,15 @@
         @else
             <img src="{{ asset('assets/images/default_profile.jpg') }}" alt="Profile Picture">
         @endif
+    </div>
+</div>
+
+
+<div class="notification-menu">
+    <div class="notification-menu-inner">
+        <h4>Notifications</h4>
+        <!-- Add notification items here -->
+        <div class="notification-item">No notifications yet!</div>
     </div>
 </div>
 

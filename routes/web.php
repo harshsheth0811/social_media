@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\ActiveFriendsController;
+use App\Http\Controllers\FriendsController;
+use App\Http\Controllers\LikesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\WelcomeController;
@@ -20,11 +22,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [WelcomeController::class, 'index'])->name('home');
     Route::post('/post', [WelcomeController::class, 'store'])->name('home.store');
 
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::post('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
-
     Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('post.delete');
 
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/like', [LikesController::class, 'like'])->name('like');
+    Route::post('/unlike', [LikesController::class, 'unlike'])->name('unlike');
+    
+    Route::get('/activefriends', [ActiveFriendsController::class, 'index'])->name('activefriends');
+    Route::get('/friends', [FriendsController::class, 'index'])->name('friends');
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 });

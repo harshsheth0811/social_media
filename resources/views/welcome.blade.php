@@ -76,7 +76,7 @@
 
     <div class="posts-all">
         @foreach ($posts as $post)
-            <div class="post-container">
+            <div class="post-container" data-post-id="{{ $post->id }}">
                 <div class="post-row">
                     <div class="user-profile">
                         @if ($post->user->profile_picture)
@@ -101,7 +101,12 @@
 
                 <div class="post-row">
                     <div class="activity-icons">
-                        <div><img src="{{ asset('assets/images/like-blue.png') }}" alt="Like Blue logo"></div>
+                        <div class="like-icon"
+                            data-liked="{{ $post->likes()->where('user_id', Auth::id())->exists() ? 'true' : 'false' }}">
+                            <img src="{{ $post->likes()->where('user_id', Auth::id())->exists() ? asset('assets/images/like-blue.png') : asset('assets/images/like.png') }}"
+                                alt="Like logo">
+                            <span class="like-count">{{ $post->likes()->count() }}</span>
+                        </div>
                         <div><img src="{{ asset('assets/images/comments.png') }}" alt="Comments logo"></div>
                         <div><img src="{{ asset('assets/images/share.png') }}" alt="Share logo"></div>
                     </div>
@@ -127,6 +132,7 @@
 
     <script>
         var likeBlueImageUrl = "{{ asset('assets/images/like-blue.png') }}";
+        var likeImageUrl = "{{ asset('assets/images/like.png') }}";
         var commentsImageUrl = "{{ asset('assets/images/comments.png') }}";
         var shareImageUrl = "{{ asset('assets/images/share.png') }}";
     </script>
@@ -135,5 +141,11 @@
         var assetBaseUrl = "{{ asset('') }}";
     </script>
 
+    <script type="text/javascript">
+        var unlikeUrl = "{{ route('unlike') }}";
+        var likeUrl = "{{ route('like') }}";
+    </script>
+
     <script src="{{ url('javascript/post.js') }}"></script>
+    <script src="{{ url('javascript/likes.js') }}"></script>
 @endsection
