@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ActiveFriendsController;
 use App\Http\Controllers\FriendsController;
 use App\Http\Controllers\LikesController;
 use App\Http\Controllers\LoginController;
@@ -29,7 +28,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/like', [LikesController::class, 'like'])->name('like');
     Route::post('/unlike', [LikesController::class, 'unlike'])->name('unlike');
     
-    Route::get('/activefriends', [ActiveFriendsController::class, 'index'])->name('activefriends');
+    Route::post('/friends/store', [FriendsController::class, 'store'])->name('friends.store');
+
     Route::get('/friends', [FriendsController::class, 'index'])->name('friends');
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');

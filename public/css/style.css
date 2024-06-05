@@ -642,7 +642,7 @@
     background-color: #1876f1;
     color: #fff;
     border: none;
-    border-radius: 50px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
     margin-left: auto;
