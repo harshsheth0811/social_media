@@ -5,8 +5,8 @@
         <li class="notification-icon" onclick="toggleNotificationMenu()">
             <img src="{{ asset('assets/images/notification.png') }}" alt="Notification logo">
         </li>
-        <li><img src="{{ asset('assets/images/inbox.png') }}" alt="Inbox logo"></li>
-        <li><img src="{{ asset('assets/images/video.png') }}" alt="Video logo"></li>
+        {{-- <li><img src="{{ asset('assets/images/inbox.png') }}" alt="Inbox logo"></li>
+        <li><img src="{{ asset('assets/images/video.png') }}" alt="Video logo"></li> --}}
     </ul>
 </div>
 <div class="nav-right">
@@ -54,7 +54,7 @@
             </div>
         </div>
         <hr>
-        <div class="user-profile">
+        {{-- <div class="user-profile">
             <img src="{{ asset('assets/images/feedback.png') }}" alt="Feedback logo">
             <div>
                 <p>Give Feedback</p>
@@ -76,7 +76,7 @@
             <img src="{{ asset('assets/images/display.png') }}" alt="Display logo" class="settings-icon">
             <a href="#">Display & Accessibility <img src="{{ asset('assets/images/arrow.png') }}"
                     alt="Arroe logo" width="8px"></a>
-        </div>
+        </div> --}}
         <div class="settings-links">
             <img src="{{ asset('assets/images/logout.png') }}" alt="Logout logo" class="settings-icon">
             <a href="/logout">Logout <img src="{{ asset('assets/images/arrow.png') }}" alt="Arroe logo"

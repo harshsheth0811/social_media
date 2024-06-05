@@ -10,7 +10,7 @@
             color: red;
         }
     </style>
-    <div class="story-gallery">
+    {{-- <div class="story-gallery">
         <div class="story story1">
             <img src="{{ asset('assets/images/upload.png') }}" alt="Upload logo">
             <p>Post Story</p>
@@ -31,7 +31,7 @@
             <img src="{{ asset('assets/images/member-4.png') }}" alt="Member4 logo">
             <p>Jhon Doe</p>
         </div>
-    </div>
+    </div> --}}
 
     <div class="write-post-container">
         <div class="user-profile">

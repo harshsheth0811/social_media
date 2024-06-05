@@ -30,6 +30,7 @@ $(document).on('click', '.like-icon', function () {
     });
 });
 
+
 // JavaScript code to set default like icon for new posts
 function setDefaultLikeIconForNewPosts() {
     $('.post-container.new-post .like-icon').each(function () {

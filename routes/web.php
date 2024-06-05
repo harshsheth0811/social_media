@@ -23,7 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/post', [WelcomeController::class, 'store'])->name('home.store');
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    Route::post('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile/{id}', [ProfileController::class, 'update'])->name('post.update');
     Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('post.delete');
 
     Route::post('/like', [LikesController::class, 'like'])->name('like');

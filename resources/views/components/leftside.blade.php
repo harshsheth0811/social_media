@@ -1,10 +1,10 @@
 <div class="imp-links">
     <a href="/"><img src="{{ asset('assets/images/news.png') }}" alt="News logo">Lettest Posts</a>
-    <a href="/friends"><img src="{{ asset('assets/images/friends.png') }}" alt="Friends logo">Friends</a>
-    <a href="#"><img src="{{ asset('assets/images/group.png') }}" alt="Group logo">Group</a>
+    <a href="/friends"><img src="{{ asset('assets/images/friends.png') }}" alt="Friends logo">My Friends</a>
+    {{-- <a href="#"><img src="{{ asset('assets/images/group.png') }}" alt="Group logo">Group</a>
     <a href="#"><img src="{{ asset('assets/images/marketplace.png') }}" alt="Marketplace logo">Marketplace</a>
-    <a href="#"><img src="{{ asset('assets/images/watch.png') }}" alt="Watch logo">Watch</a>
-    <a href="#">See More</a>
+    <a href="#"><img src="{{ asset('assets/images/watch.png') }}" alt="Watch logo">Watch</a> --}}
+    {{-- <a href="#">See More</a> --}}
 </div>
 
 <div class="shortcut-links">

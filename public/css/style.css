@@ -147,9 +147,9 @@
         margin-right: 15px;
     }
 
-    .imp-links a:last-child {
+    /* .imp-links a:last-child {
         color: #1876f2;
-    }
+    } */
 
     .imp-links {
         border-bottom: 1px solid #ccc;
@@ -635,4 +635,19 @@
 
 .notification-item:last-child {
     border-bottom: none;
+}
+
+.add-friend-btn {
+    padding: 3px 10px;
+    background-color: #1876f1;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: auto;
+}
+
+.add-friend-btn:hover {
+    background-color: #145dbf;
 }

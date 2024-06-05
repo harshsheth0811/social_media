@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Posts;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +14,8 @@ class ProfileController extends Controller
         $user = Auth::id();
 
         $posts = Posts::with('user')->where('user_id', $user)->latest()->get();
-        return view('profile', compact('posts'));
+        $users = User::where('id', '!=', Auth::id())->get();
+        return view('profile', compact('posts','users'));
     }
 
     public function destroy($id)
@@ -34,7 +36,7 @@ class ProfileController extends Controller
         $post = Posts::find($id);
 
         if ($request->hasFile('post_image')) {
-            $imageName = time() . '.' . $request->post_image->extension();
+             $imageName = time() . '.' . $request->post_image->extension();
             $request->post_image->move(public_path('post_images'), $imageName);
             $post->post_image = $imageName;
         }

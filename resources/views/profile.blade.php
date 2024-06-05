@@ -61,7 +61,7 @@
         <div id="editProfileModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <form id="editProfileForm">
+                <form id="editProfileForm" enctype="multipart/form-data">
                     <label for="editUsername">Username</label>
                     <input type="text" id="editUsername" name="username" value="{{ Auth::user()->username }}" required>
 
@@ -71,7 +71,7 @@
                     <label for="editProfilePicture">Profile Picture</label>
                     <input type="file" id="editProfilePicture" name="profile_picture">
 
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary">Save Profile</button>
                 </form>
             </div>
         </div>
@@ -85,12 +85,13 @@
                     <input type="text" id="editDescription" name="description" required maxlength="255">
                     <label for="editPostImage">Post Image</label>
                     <input type="file" id="editPostImage" name="post_image">
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary">Save Post</button>
                 </form>
             </div>
         </div>
     </div>
 
+    <script src="{{ url('javascript/update_profile.js') }}"></script>
     <script src="{{ url('javascript/update.js') }}"></script>
     <script src="{{ url('javascript/delete.js') }}"></script>
 @endsection

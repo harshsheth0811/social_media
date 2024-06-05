@@ -1,13 +1,13 @@
-$(document).on('click', '.btn-edit', function() {
+$(document).on('click', '.btn-edit', function () {
     var postId = $(this).data('id');
     var postDescription = $(this).closest('.photo-item').find('.photo-description').text();
-    
+
     $('#post_id').val(postId);
     $('#editDescription').val(postDescription);
-    $('#editPhotoModal').show();    
+    $('#editPhotoModal').show();
 });
 
-$('.close').on('click', function() {
+$('.close').on('click', function () {
     closeModal();
 });
 
@@ -16,7 +16,7 @@ function closeModal() {
     $('#editPhotoModal').hide();
 }
 
-$('#editPhotoForm').submit(function(e) {
+$('#editPhotoForm').submit(function (e) {
     e.preventDefault();
     var formData = new FormData(this);
     var postId = $('#post_id').val();
@@ -31,7 +31,7 @@ $('#editPhotoForm').submit(function(e) {
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        success: function(response) {
+        success: function (response) {
             if (response.success) {
                 var updatedItem = $('.photo-item').find(`[data-id='${postId}']`).closest('.photo-item');
                 updatedItem.find('.photo-description').text(response.post.description);
@@ -39,13 +39,11 @@ $('#editPhotoForm').submit(function(e) {
                     updatedItem.find('img').attr('src', 'post_images/' + response.post.post_image);
                 }
                 closeModal();
-
-                // $('#editPhotoModal').hide();
             } else {
                 alert('Failed to update post.');
             }
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error(xhr.responseText);
         }
     });

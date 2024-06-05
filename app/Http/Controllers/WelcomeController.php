@@ -12,7 +12,9 @@ class WelcomeController extends Controller
     public function index()
     {
         $posts = Posts::with('user')->latest()->get();
-        return view('welcome', compact('posts'));
+        $users = User::where('id', '!=', Auth::id())->get();
+
+        return view('welcome', compact('posts', 'users'));
     }
 
     public function store(Request $request)
@@ -42,4 +44,4 @@ class WelcomeController extends Controller
             'post_image_url' => $imageName ? asset('post_images/' . $imageName) : null
         ]);
     }
-}   
+}
