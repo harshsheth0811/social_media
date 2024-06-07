@@ -62,6 +62,7 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <form id="editProfileForm" enctype="multipart/form-data">
+                    @csrf
                     <label for="editUsername">Username</label>
                     <input type="text" id="editUsername" name="username" value="{{ Auth::user()->username }}" required>
 
@@ -80,6 +81,7 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <form id="editPhotoForm">
+                    @csrf
                     <input type="hidden" name="post_id" id="post_id">
                     <label for="editDescription">Description</label>
                     <input type="text" id="editDescription" name="description" required maxlength="255">

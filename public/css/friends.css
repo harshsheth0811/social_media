@@ -17,15 +17,15 @@
 .friend-text {
     display: flex;
     flex-direction: column;
-    margin-right: 330px;
+    margin-right: 420px;
 }
 
-.friend-text h3
-{
+.friend-text h3 {
     font-size: large;
     margin: 2px 0;
     color: var(--font-color);
 }
+
 .friend-text p {
     margin: 2px 0;
     color: var(--font-color);
@@ -38,7 +38,7 @@
     border-radius: 50%;
 }
 
-.friend-info button {
+/* .friend-info button {
     padding: 3px 10px;
     background-color: #f41f18;
     color: #fff;
@@ -46,9 +46,15 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
+} */
 
 .friend-list h2 {
     font-size: 24px;
     color: var(--font-color);
 }
+
+.followed-btn {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+}   

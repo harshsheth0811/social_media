@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Friends;
 use App\Models\Posts;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class ProfileController extends Controller
 
         $posts = Posts::with('user')->where('user_id', $user)->latest()->get();
         $users = User::where('id', '!=', Auth::id())->get();
-        return view('profile', compact('posts','users'));
+        $friends = Friends::where('user_id', Auth::id())->pluck('friend_id')->toArray();
+        return view('profile', compact('posts','users', 'friends'));
     }
 
     public function destroy($id)

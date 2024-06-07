@@ -12,7 +12,8 @@ class FriendsController extends Controller
     public function index()
     {
         $users = User::where('id', '!=', Auth::id())->get();
-        return view('friends', compact('users'));
+        $friends = Friends::where('user_id', Auth::id())->pluck('friend_id')->toArray();
+        return view('friends', compact('users', 'friends'));
     }
 
     public function store(Request $request)

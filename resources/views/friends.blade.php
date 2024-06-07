@@ -17,7 +17,7 @@
                         <h3>John Doe</h3>
                         <p>jhon@gmail.com</p>
                     </div>
-                    <button>Remove</button>
+                    {{-- <button>Remove</button> --}}
                 </div>
             </div>
         </div>

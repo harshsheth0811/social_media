@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Friends;
 use App\Models\Posts;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,10 +12,11 @@ class WelcomeController extends Controller
 {
     public function index()
     {
+        // $posts = Posts::with('comments.user')->get(); 
         $posts = Posts::with('user')->latest()->get();
         $users = User::where('id', '!=', Auth::id())->get();
-
-        return view('welcome', compact('posts', 'users'));
+        $friends = Friends::where('user_id', Auth::id())->pluck('friend_id')->toArray();
+        return view('welcome', compact('posts', 'users', 'friends'));
     }
 
     public function store(Request $request)

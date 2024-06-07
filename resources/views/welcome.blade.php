@@ -75,13 +75,12 @@
     </div>
 
     <div class="posts-all">
-        @foreach ($posts as $post)
+        @forelse ($posts as $post)
             <div class="post-container" data-post-id="{{ $post->id }}">
                 <div class="post-row">
                     <div class="user-profile">
                         @if ($post->user->profile_picture)
-                            <img src="{{ asset('profile_picture/' . $post->user->profile_picture) }}"
-                                alt="Profile Picture">
+                            <img src="{{ asset('profile_picture/' . $post->user->profile_picture) }}" alt="Profile Picture">
                         @else
                             <img src="{{ asset('assets/images/default_profile.jpg') }}" alt="Profile Picture">
                         @endif
@@ -107,7 +106,8 @@
                                 alt="Like logo">
                             <span class="like-count">{{ $post->likes()->count() }}</span>
                         </div>
-                        <div><img src="{{ asset('assets/images/comments.png') }}" alt="Comments logo"></div>
+                        <div class="comments-icon"><img src="{{ asset('assets/images/comments.png') }}"
+                                alt="Comments logo"></div>
                         <div><img src="{{ asset('assets/images/share.png') }}" alt="Share logo"></div>
                     </div>
 
@@ -122,10 +122,34 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <p>No posts available.</p>
+        @endforelse
+
+        <!-- Comment Modal -->
+        <div id="commentModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-header">
+                    <h2>Comments</h2>
+                </div>
+                <div class="modal-body">
+                    <div id="commentsContainer"></div>
+                    <form id="commentsForm">
+                        @csrf
+                        <div class="add-comment">
+                            <input type="text" id="modalCommentInput" class="comment-input"
+                                placeholder="Add a comment...">
+                            <button id="modalSubmitComment" class="submit-comment" data-post-id="">Post</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <button type="button" class="load-more-btn">Load More</button>
+    
     <script type="text/javascript">
         var postStore = "{{ route('home.store') }}";
     </script>
@@ -146,6 +170,11 @@
         var likeUrl = "{{ route('like') }}";
     </script>
 
+    <script type="text/javascript">
+        var commentUrl = "{{ route('comments.store') }}";
+    </script>
+
     <script src="{{ url('javascript/post.js') }}"></script>
     <script src="{{ url('javascript/likes.js') }}"></script>
+    <script src="{{ url('javascript/comments.js') }}"></script>
 @endsection

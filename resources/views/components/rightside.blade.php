@@ -44,7 +44,7 @@
                 alt="{{ $user->username }}'s profile picture">
         </div>
         <p>{{ $user->username }}</p>
-        <button class="add-friend-btn" data-user-id="{{ Auth::id() }}" data-friend-id="{{ $user->id }}">Add
+        <button class="add-friend-btn" data-user-id="{{ Auth::id() }}" data-friend-id="{{ $user->id }}">+Add
             Friend</button>
     </div>
 @endforeach

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\FriendsController;
 use App\Http\Controllers\LikesController;
 use App\Http\Controllers\LoginController;
@@ -27,7 +28,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/like', [LikesController::class, 'like'])->name('like');
     Route::post('/unlike', [LikesController::class, 'unlike'])->name('unlike');
-    
+
+    Route::get('/comments/{postId}', [CommentsController::class, 'index'])->name('comments.index');
+    Route::post('/comments', [CommentsController::class, 'store'])->name('comments.store');
+
     Route::post('/friends/store', [FriendsController::class, 'store'])->name('friends.store');
 
     Route::get('/friends', [FriendsController::class, 'index'])->name('friends');

@@ -2,7 +2,8 @@ $(document).ready(function () {
     $('.add-friend-btn').click(function () {
         var userId = $(this).data('user-id');
         var friendId = $(this).data('friend-id');
-        
+        var button = $(this);
+
         $.ajax({
             url: friendStore,
             type: 'POST',
@@ -15,7 +16,8 @@ $(document).ready(function () {
             },
             success: function (response) {
                 if (response.success) {
-                    alert('Friend request sent!');
+                    alert('Friend request sent.');
+                    button.closest('.online-list').remove();
                 } else {
                     alert('Failed to send friend request.');
                 }
