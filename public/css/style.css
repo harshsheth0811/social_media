@@ -674,6 +674,7 @@ color: #1876f2;
     border: 1px solid #ccc;
     width: 30%;
     border-radius: 8px;
+    color: var(--font-color);
 }
 
 .close {
@@ -713,14 +714,6 @@ color: #1876f2;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 10px;
-}
-
-.commentsContainer p {
-    color: var(--font-color);
-}
-
-.commentsContainer p strong {
-    color: var(--font-color);
 }
 
 .submit-comment {

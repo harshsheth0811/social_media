@@ -102,7 +102,7 @@
                                 <div class="col-12">
                                     <p class="mt-5 mb-4">Or sign in with</p>
                                     <div class="d-flex gap-3 flex-column flex-xl-row">
-                                        <a href="#!" class="btn bsb-btn-xl btn-outline-primary">
+                                        <a href="{{route('googlelogin')}}" class="btn bsb-btn-xl btn-outline-primary">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
                                                 <path

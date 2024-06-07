@@ -10,11 +10,8 @@
 <div class="shortcut-links">
     <p>Your Shortcuts</p>
 
-    <a href="#"><img src="{{ asset('assets/images/shortcut-1.png') }}" alt="Shortcut1 logo">Web
-        Developers</a>
-    <a href="#"><img src="{{ asset('assets/images/shortcut-2.png') }}" alt="Shortcut2 logo">Web
-        Design Course</a>
-    <a href="#"><img src="{{ asset('assets/images/shortcut-3.png') }}" alt="Shortcut3 logo">Full
-        Stack Development</a>
-    <a href="#"><img src="{{ asset('assets/images/shortcut-4.png') }}" alt="Shortcut4 logo">Website Experts</a>
+    <a href="https://www.w3schools.com/html/"><img src="{{ asset('assets/images/shortcut-1.png') }}" alt="Shortcut1 logo">HTML</a>
+    <a href="https://www.w3schools.com/w3css/"><img src="{{ asset('assets/images/shortcut-2.png') }}" alt="Shortcut2 logo">CSS</a>
+    <a href="https://www.w3schools.com/jquery/default.asp"><img src="{{ asset('assets/images/shortcut-3.png') }}" alt="Shortcut3 logo">jQuery</a>
+    <a href="https://laravel.com/docs/11.x  "><img src="{{ asset('assets/images/shortcut-4.png') }}" alt="Shortcut4 logo">Laravel 11</a>
 </div>

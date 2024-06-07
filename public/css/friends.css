@@ -17,7 +17,7 @@
 .friend-text {
     display: flex;
     flex-direction: column;
-    margin-right: 420px;
+    margin-right: 340px;
 }
 
 .friend-text h3 {
@@ -38,7 +38,7 @@
     border-radius: 50%;
 }
 
-/* .friend-info button {
+.friend-info button {
     padding: 3px 10px;
     background-color: #f41f18;
     color: #fff;
@@ -46,7 +46,7 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-} */
+}
 
 .friend-list h2 {
     font-size: 24px;

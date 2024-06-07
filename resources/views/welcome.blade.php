@@ -6,7 +6,7 @@
 
 @section('main')
     <style>
-        .error {
+        .er ror {
             color: red;
         }
     </style>
@@ -89,7 +89,7 @@
                             <small>{{ $post->created_at->format('F d, Y') }}</small>
                         </div>
                     </div>
-                    <a href="#"><i class="fa fa-ellipsis-v"></i></a>
+                    {{-- <a href="#"><i class="fa fa-ellipsis-v"></i></a> --}}
                 </div>
 
                 <p class="post-text">{{ $post->description }}</p>
@@ -108,7 +108,7 @@
                         </div>
                         <div class="comments-icon"><img src="{{ asset('assets/images/comments.png') }}"
                                 alt="Comments logo"></div>
-                        <div><img src="{{ asset('assets/images/share.png') }}" alt="Share logo"></div>
+                        {{-- <div><img src="{{ asset('assets/images/share.png') }}" alt="Share logo"></div> --}}
                     </div>
 
                     <div class="post-profile-icon">

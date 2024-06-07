@@ -4,7 +4,6 @@ $(document).ready(function () {
     var modalSubmitComment = $("#modalSubmitComment");
     var modalCommentInput = $("#modalCommentInput");
     var closeBtn = $(".close");
-    console.log(modalSubmitComment);
     function fetchComments(postId) {
         $.ajax({
             url: '/comments/' + postId,

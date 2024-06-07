@@ -1,5 +1,5 @@
 <div class="nav-left">
-    <img src="{{ asset('assets/images/logo.png') }}" alt="SocialBook logo" class="logo">
+    <a href="/" style="text-decoration: none"><img src="{{ asset('assets/images/logo.png') }}" alt="SocialBook logo" class="logo"></a>
 
     <ul>
         <li class="notification-icon" onclick="toggleNotificationMenu()">

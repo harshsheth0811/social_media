@@ -11,6 +11,8 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest'], function () {
+    Route::get('auth/google', [LoginController::class, 'googlelogincallback'])->name('googlelogin');
+    Route::get('auth/google/callback', [LoginController::class, 'googlelogin']);
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('loginuser');
 
@@ -32,9 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/comments/{postId}', [CommentsController::class, 'index'])->name('comments.index');
     Route::post('/comments', [CommentsController::class, 'store'])->name('comments.store');
 
-    Route::post('/friends/store', [FriendsController::class, 'store'])->name('friends.store');
-
     Route::get('/friends', [FriendsController::class, 'index'])->name('friends');
+    Route::post('/friends/store', [FriendsController::class, 'store'])->name('friends.store');
+    Route::delete('/friends/{id}', [FriendsController::class, 'destroy'])->name('friends.destroy');
 
     Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 });

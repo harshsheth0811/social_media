@@ -12,7 +12,7 @@ class FriendsController extends Controller
     public function index()
     {
         $users = User::where('id', '!=', Auth::id())->get();
-        $friends = Friends::where('user_id', Auth::id())->pluck('friend_id')->toArray();
+        $friends = Friends::where('user_id', Auth::id())->with('friend')->get()->pluck('friend');
         return view('friends', compact('users', 'friends'));
     }
 
@@ -30,6 +30,18 @@ class FriendsController extends Controller
             return response()->json(['success' => true]);
         } else {
             return response()->json(['error' => 'Invalid user ID or friend ID'], 422);
+        }
+    }
+
+    public function destroy($id)
+    {
+        $friend = Friends::where('user_id', Auth::id())->where('friend_id', $id)->first();
+
+        if ($friend) {
+            $friend->delete();
+            return response()->json(['success' => true]);
+        } else {
+            return response()->json(['error' => 'Friend not found'], 404);
         }
     }
 }

@@ -16,10 +16,34 @@ $(document).ready(function () {
             },
             success: function (response) {
                 if (response.success) {
-                    alert('Friend request sent.');
                     button.closest('.online-list').remove();
                 } else {
                     alert('Failed to send friend request.');
+                }
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr.responseText);
+                alert('An error occurred.');
+            }
+        });
+    });
+
+    // Remove friend
+    $('.remove-friend-btn').click(function () {
+        var friendId = $(this).data('friend-id');
+        var button = $(this);
+
+        $.ajax({
+            url: '/friends/' + friendId,
+            type: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (response) {
+                if (response.success) {
+                    button.closest('.friend-card').remove();
+                } else {
+                    alert('Failed to remove friend.');
                 }
             },
             error: function (xhr, status, error) {
