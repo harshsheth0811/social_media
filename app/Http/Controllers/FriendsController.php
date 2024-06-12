@@ -13,7 +13,8 @@ class FriendsController extends Controller
     {
         $users = User::where('id', '!=', Auth::id())->get();
         $friends = Friends::where('user_id', Auth::id())->with('friend')->get()->pluck('friend');
-        return view('friends', compact('users', 'friends'));
+        $notification = auth()->user()->notifications;
+        return view('friends', compact('users', 'friends', 'notification'));
     }
 
     public function store(Request $request)

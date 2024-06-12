@@ -16,7 +16,8 @@ class WelcomeController extends Controller
         $posts = Posts::with('user')->latest()->get();
         $users = User::where('id', '!=', Auth::id())->get();
         $friends = Friends::where('user_id', Auth::id())->pluck('friend_id')->toArray();
-        return view('welcome', compact('posts', 'users', 'friends'));
+        $notification = auth()->user()->notifications;
+        return view('welcome', compact('posts', 'users', 'friends', 'notification'));
     }
 
     public function store(Request $request)

@@ -124,6 +124,7 @@ nav {
     align-self: flex-start;
     background: var(--bg-color);
     padding: 20px;
+    border: 1px solid var(--font-color);
     border-radius: 4px;
     color: var(--font-color);
 }
@@ -227,6 +228,7 @@ color: #1876f2;
 .sidebar-ads {
     width: 100%;
     margin-bottom: 20px;
+    border: 1px solid var(--font-color);
     border-radius: 4px;
 }
 
@@ -317,6 +319,7 @@ color: #1876f2;
 .write-post-container {
     width: 100%;
     background: var(--bg-color);
+    border: 1px solid var(--font-color);
     border-radius: 6px;
     padding: 20px;
     color: var(--font-color);
@@ -371,6 +374,7 @@ color: #1876f2;
 .post-container {
     width: 100%;
     background: var(--bg-color);
+    border: 1px solid var(--font-color);
     border-radius: 6px;
     padding: 20px;
     color: var(--font-color);
@@ -400,6 +404,7 @@ color: #1876f2;
 
 .post-img {
     width: 100%;
+    border: 1px solid var(--font-color);
     border-radius: 4px;
     margin-bottom: 5px;
 }
@@ -738,4 +743,62 @@ color: #1876f2;
 
 .add-comment button {
     flex-shrink: 0;
+}
+
+/*Notificati Style */
+.notification-container {
+    height: 267px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 10px;
+    color: var(--font-color);
+    border-bottom: 1px solid #ccc;
+    height: 70px;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item .flex {
+    display: flex;
+    align-items: center;
+}
+
+.notification-item img {
+    object-cover: cover;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.notification-item .ml-3 {
+    margin-left: 15px;
+}
+
+.notification-item .overflow-hidden {
+    overflow: hidden;
+}
+
+.notification-item .font-medium {
+    font-weight: 500;
+    color: var(--font-color);
+}
+
+.notification-item .max-w-xs {
+    max-width: 250px;
+}
+
+.notification-item .text-sm {
+    font-size: 14px;
+    color: var(--font-color);
+}
+
+.notification-item .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

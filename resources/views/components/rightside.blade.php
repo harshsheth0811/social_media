@@ -40,14 +40,21 @@
 @foreach ($users as $user)
     <div class="online-list">
         <div class="online">
-            <img src="{{ asset('profile_picture/' . $user->profile_picture) }}"
-                alt="{{ $user->username }}'s profile picture">
+            @if (is_external_url($user->profile_picture))
+                <img src="{{ $user->profile_picture }}" alt="{{ $user->username }}'s Profile Picture">
+            @elseif ($user->profile_picture)
+                <img src="{{ asset('profile_picture/' . $user->profile_picture) }}"
+                    alt="{{ $user->username }}'s Profile Picture">
+            @else
+                <img src="{{ asset('assets/images/default_profile.jpg') }}" alt="Default Profile Picture">
+            @endif
         </div>
         <p>{{ $user->username }}</p>
         <button class="add-friend-btn" data-user-id="{{ Auth::id() }}" data-friend-id="{{ $user->id }}">+Add
             Friend</button>
     </div>
 @endforeach
+
 
 <script type="text/javascript">
     var friendStore = "{{ route('friends.store') }}";
