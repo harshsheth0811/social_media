@@ -17,7 +17,8 @@ class ProfileController extends Controller
         $posts = Posts::with('user')->where('user_id', $user)->latest()->get();
         $users = User::where('id', '!=', Auth::id())->get();
         $friends = Friends::where('user_id', Auth::id())->pluck('friend_id')->toArray();
-        return view('profile', compact('posts','users', 'friends'));
+        $notification = auth()->user()->notifications;
+        return view('profile', compact('posts', 'users', 'friends', 'notification'));
     }
 
     public function destroy($id)
@@ -38,7 +39,7 @@ class ProfileController extends Controller
         $post = Posts::find($id);
 
         if ($request->hasFile('post_image')) {
-             $imageName = time() . '.' . $request->post_image->extension();
+            $imageName = time() . '.' . $request->post_image->extension();
             $request->post_image->move(public_path('post_images'), $imageName);
             $post->post_image = $imageName;
         }
@@ -47,5 +48,28 @@ class ProfileController extends Controller
         $post->save();
 
         return response()->json(['success' => true, 'post' => $post]);
+    }
+
+    public function upd_profile(Request $request, $id)
+    {
+        $request->validate([
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'profile_picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        $user = User::find($id);
+
+        if ($request->hasFile('profile_picture')) {
+            $imageName = time() . '.' . $request->profile_picture->extension();
+            $request->profile_picture->move(public_path('profile_picture'), $imageName);
+            $user->profile_picture = $imageName;
+        }
+
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->save();
+
+        return response()->json(['success' => true, 'user' => $user]);
     }
 }

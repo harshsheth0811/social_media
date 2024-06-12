@@ -11,8 +11,13 @@
             <h2>My Friends</h2>
             @forelse ($friends as $friend)
                 <div class="friend-card">
-                    <img src="{{ asset('profile_picture/' . ($friend->profile_picture ?? 'assets/images/default_profile.jpg')) }}"
-                        alt="Friend Profile Picture">
+                    @if (is_external_url($friend->profile_picture))
+                        <img src="{{ $friend->profile_picture }}" alt="Profile Picture">
+                    @elseif ($friend->profile_picture)
+                        <img src="{{ asset('profile_picture/' . $friend->profile_picture) }}" alt="Profile Picture">
+                    @else
+                        <img src="{{ asset('assets/images/default_profile.jpg') }}" alt="Profile Picture">
+                    @endif
                     <div class="friend-info">
                         <div class="friend-text">
                             <h3>{{ $friend->username }}</h3>

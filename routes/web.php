@@ -25,9 +25,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/post', [WelcomeController::class, 'store'])->name('home.store');
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::post('/profile/update/{id}', [ProfileController::class, 'upd_profile'])->name('profile.update');
     Route::post('/profile/{id}', [ProfileController::class, 'update'])->name('post.update');
     Route::delete('/profile/{id}', [ProfileController::class, 'destroy'])->name('post.delete');
-
+    
     Route::post('/like', [LikesController::class, 'like'])->name('like');
     Route::post('/unlike', [LikesController::class, 'unlike'])->name('unlike');
 

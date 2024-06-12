@@ -35,11 +35,8 @@
 
     <div class="write-post-container">
         <div class="user-profile">
-            @if (Auth::check() && Auth::user()->profile_picture)
-                <img src="{{ asset('profile_picture/' . Auth::user()->profile_picture) }}" alt="Profile Picture">
-            @else
-                <img src="{{ asset('assets/images/default_profile.jpg') }}" alt="Profile Picture">
-            @endif
+            <img src="{{ is_external_url(auth()->user()->profile_picture) ? auth()->user()->profile_picture : asset('profile_picture/' . auth()->user()->profile_picture) }}"
+                alt="Profile Picture">
             <div>
                 <p>
                     @if (Auth()->user())
@@ -79,7 +76,9 @@
             <div class="post-container" data-post-id="{{ $post->id }}">
                 <div class="post-row">
                     <div class="user-profile">
-                        @if ($post->user->profile_picture)
+                        @if (is_external_url($post->user->profile_picture))
+                            <img src="{{ $post->user->profile_picture }}" alt="Profile Picture">
+                        @elseif ($post->user->profile_picture)
                             <img src="{{ asset('profile_picture/' . $post->user->profile_picture) }}" alt="Profile Picture">
                         @else
                             <img src="{{ asset('assets/images/default_profile.jpg') }}" alt="Profile Picture">
@@ -112,13 +111,21 @@
                     </div>
 
                     <div class="post-profile-icon">
-                        @if ($post->user->profile_picture)
+                        @if (is_external_url($post->user->profile_picture))
+                            <img src="{{ $post->user->profile_picture }}" alt="Profile Picture"><i class="fa fa-caret-down"></i>
+                        @elseif ($post->user->profile_picture)
+                            <img src="{{ asset('profile_picture/' . $post->user->profile_picture) }}"
+                                alt="Profile Picture"><i class="fa fa-caret-down"></i>
+                        @else
+                            <img src="{{ asset('assets/images/default_profile.jpg') }}" alt="Profile Picture"><i class="fa fa-caret-down"></i>
+                        @endif
+                        {{-- @if ($post->user->profile_picture)
                             <img src="{{ asset('profile_picture/' . $post->user->profile_picture) }}"
                                 alt="Profile Picture"><i class="fa fa-caret-down"></i>
                         @else
                             <img src="{{ asset('assets/images/default_profile.jpg') }}" alt="Profile Picture"><i
                                 class="fa fa-caret-down"></i>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             </div>
@@ -149,7 +156,7 @@
     </div>
 
     <button type="button" class="load-more-btn">Load More</button>
-    
+
     <script type="text/javascript">
         var postStore = "{{ route('home.store') }}";
     </script>

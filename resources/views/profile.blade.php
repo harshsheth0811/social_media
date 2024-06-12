@@ -13,11 +13,8 @@
         </div>
         <div class="profile-info">
             <div class="profile-pic">
-                @if (Auth::check() && Auth::user()->profile_picture)
-                    <img src="{{ asset('profile_picture/' . Auth::user()->profile_picture) }}" alt="Profile Picture">
-                @else
-                    <img src="{{ asset('assets/images/default_profile.jpg') }}" alt="Profile Picture">
-                @endif
+                <img
+                    src="{{ is_external_url(auth()->user()->profile_picture) ? auth()->user()->profile_picture : asset('profile_picture' . auth()->user()->profile_picture) }}"></img>
             </div>
             <div class="user-info">
                 <h1>
@@ -32,7 +29,7 @@
                 </p>
             </div>
             <div class="profile-actions">
-                <button class="btn btn-primary" id="editProfileBtn">Edit Profile</button>
+                <button class="btn btn-primary" type="submit" id="editProfileBtn">Edit Profile</button>
             </div>
         </div>
 
@@ -93,6 +90,9 @@
         </div>
     </div>
 
+    <script type="text/javascript">
+        var upd_profileUrl = "{{ route('profile.update', Auth::user()->id) }}";
+    </script>
     <script src="{{ url('javascript/update_profile.js') }}"></script>
     <script src="{{ url('javascript/update.js') }}"></script>
     <script src="{{ url('javascript/delete.js') }}"></script>

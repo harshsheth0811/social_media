@@ -18,7 +18,8 @@ class User extends Authenticatable
         'username',
         'email',
         'profile_picture',
-        'password'
+        'password',
+        'google_id'
     ];
 
     protected function casts(): array
