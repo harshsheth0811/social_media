@@ -30,10 +30,6 @@ $(document).ready(function () {
         var commentHtml = '<div class="comment" data-comment-id="' + comment.id + '">';
         commentHtml += '<p><strong>' + comment.user.username + ':</strong> ' + comment.content + '</p>';
 
-        if (!comment.parent_id) {
-            commentHtml += '<button class="reply-btn" data-comment-id="' + comment.id + '">Reply</button>';
-        }
-
         if (comment.replies && comment.replies.length > 0) {
             commentHtml += '<div class="replies">';
             comment.replies.forEach(function (reply) {
@@ -42,6 +38,9 @@ $(document).ready(function () {
             commentHtml += '</div>';
         }
 
+        if (!comment.parent_id) {
+            commentHtml += '<button class="reply-btn" data-comment-id="' + comment.id + '">Reply</button>';
+        }
         commentHtml += '<div class="reply-form-container" style="display: none;">';
         commentHtml += '<input type="text" class="reply-input" placeholder="Add a reply...">';
         commentHtml += '<button class="submit-reply" data-comment-id="' + comment.id + '">Reply</button>';
